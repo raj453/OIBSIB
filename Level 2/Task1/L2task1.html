@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="mycss.css">
+</head>
+<body>
+    <div  class="main"  >
+        <div class="cha mod" >
+            <input type="text" class="in1" id="dis1" >
+            <input type="text" class="in2" id="dis2" dir="rtl">
+        </div>
+
+        <div class="row">
+
+            <div class="col-1" onclick="get('(')">
+                <p class="np" >(</p>
+            </div>
+            <div class="col-1" onclick="get(')')">
+                <p class="np">)</p>
+            </div>
+            <div class="col-1" onclick="ans()">
+                <p class="np">ans</p>
+            </div>
+            <div class="col-1" onclick="del()">
+                <p class="np">del</p>
+            </div>
+            <div class="col-2" onclick="cler()">
+                <p class="np">clear</p>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-1 cha" onclick="get('7')">
+                <p class="np" >7</p>
+            </div>
+            <div class="col-1 cha" onclick="get('8')">
+                <p class="np" >8</p>
+            </div>
+            <div class="col-1 cha" onclick="get('9')">
+                <p class="np" >9</p>
+            </div>
+            <div class="col-1" onclick="get('%')">
+                <p class="np" >%</p>
+            </div>
+            <div class="col-2" onclick="get('^')">
+                <p class="np" >^</p>
+            </div>
+        </div>
+        <div class="row">
+                         <div class="col-1 cha" onclick="get('4')">
+                             <p class="np" >4</p>
+                            </div>
+                            <div class="col-1 cha" onclick="get('5')">
+                                <p class="np" > 5</p>
+                            </div>
+                            <div class="col-1 cha" onclick="get('6')">
+                                <p class="np" > 6</p>
+                            </div>
+                            <div class="col-1 " onclick="get('x')">
+                                <p class="np" > X</p>
+                            </div>
+                            <div class="col-2 " onclick="get('/')">
+                                <p class="np" >/</p>
+                            </div>
+        </div>
+        <div class="row">
+                              <div class="col-1 cha" onclick="get('1')">
+                                 <p class="np" >1</p>
+                            </div>
+                            <div class="col-1 cha" onclick="get('2')">
+                                <p class="np" >2</p>
+                            </div>
+                            <div class="col-1 cha" onclick="get('3')">
+                                <p class="np" >3</p>
+                            </div>
+                            <div class="col-1 " onclick="get('+')">
+                                <p class="np" >+</p>
+                            </div>
+                            <div class="col-2" onclick="get('-')">
+                                <p class="np" >-</p>
+                            </div>
+        </div>
+        <div class="row">
+                         <div class="col-1" onclick="get('00')">
+                             <p class="np" >00</p>
+                            </div>
+                            <div class="col-1 cha" onclick="get('0')">
+                                <p class="np" >0</p>
+                            </div>
+                            <div class="col-1" onclick="get('.')">
+                                <p class="np" >.</p>
+                            </div>
+
+                            <div class="col-3" onclick="enter()">
+                                <p class="np"> Enter</p>
+                            </div>
+        </div>
+    </div>
+    <script>
+        function get(a){
+               document.getElementById("dis1").value=document.getElementById("dis1").value+""+a     
+        }
+        function cler(){
+            document.getElementById("dis1").value="";
+            document.getElementById("dis2").value="";
+        }
+        function del(){
+            var a=document.getElementById("dis1").value;
+            
+            document.getElementById("dis1").value=a.slice(0,-1);
+            console.log(typeof(a));  
+        }
+        function enter(){
+                var str=document.getElementById("dis1").value;
+                
+                
+             let f="";s="";
+             var co=0   
+           for (let index = 0; index < str.length; index++) {
+             
+            if (str[index]=='+' || str[index]=='-' || str[index]=='x' || str[index]=='/' || str[index]=='%' || str[index]=='^') {
+                co=1;
+            }
+            else if(co==0){
+                f+=str[index];
+            }
+            if(co==1){            
+                    s+=str[index];
+            }
+           }
+           for (let index = 0; index < str.length; index++) {
+                 if(str[index]=='+'){
+                                      var aa= document.getElementById("dis2").value=add(Number(f),Number(s));
+                                      window.value=aa;
+                                     } 
+                else if(str[index]=='-')
+                                     {
+                                        var aa= document.getElementById("dis2").value=min(Number(f),Number(s));
+                                        window.value=aa;
+                                     }
+                else if(str[index]=='x')
+                                     {
+                                        s=s.substring(1);
+                                        var aa= document.getElementById("dis2").value=mul(Number(f),Number(s));
+                                        window.value=aa;
+                                     }
+                else if(str[index]=='/')
+                                     {
+                                        s=s.substring(1);
+                                        var aa= document.getElementById("dis2").value=div(Number(f),Number(s));
+                                        window.value=aa;
+                                     }
+                else if(str[index]=='%')
+                                     {
+                                        s=s.substring(1);
+                                        var aa= document.getElementById("dis2").value=mod(Number(f),Number(s));
+                                        window.value=aa;
+                                     }
+                else if(str[index]=='^')
+                                     {
+                                        s=s.substring(1);
+                                        var aa= document.getElementById("dis2").value=square(Number(f),Number(s));
+                                        window.value=aa;
+                                     }
+
+                
+             }
+        }
+        function ans(){
+            if(window.value!=undefined){
+            document.getElementById("dis2").value=window.value;
+             }
+             if(window.value==undefined){
+            document.getElementById("dis2").value="";
+             }             
+        }
+        function add(f,s){
+
+            temp=f+s;
+            return temp;
+        }
+        function min(f,s){
+            temp=f-s;
+            return temp;
+        }
+        function mul(f,s){
+            temp=f*s;
+            return temp;
+        }
+        function div(f,s){
+            temp=f/s;
+            return temp;
+        }
+        function mod(f,s){
+            temp=(f/100)*s;
+            return temp;
+        }
+        function square(f,s){
+            temp=f**s;
+            return temp;
+        }
+
+
+    </script>
+</body>
+</html>
