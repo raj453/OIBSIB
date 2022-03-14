@@ -1,0 +1,123 @@
+body{
+    width: 100%;
+    height: fit-content;
+    background-color:rgb(46, 44, 44);
+    justify-content: center;
+    font-family: sans-serif;
+}
+div.top{
+  
+    width: 100%;
+    height: 460px;
+    background-color: rgb(46, 44, 44);
+}
+div.row{
+    width: 100%;
+    height: 100%;
+}
+div.col-1{
+    width: 60%;
+    height: 100%;
+    float: left;
+    
+}
+div.col-2{
+    
+    width: 40%;
+    height: 100%;
+    float: right;
+}
+img.img1{
+margin-left: 40%;
+margin-bottom: 0;
+
+margin-right: auto;
+width: 60%;
+display: block;
+}
+div.cont{
+    position: relative;
+    text-align: center;
+    color: white;
+}
+div.ondiv{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 60px;
+}
+button.bts{
+    width: 40px;
+    height: 40px; 
+    
+    border-bottom-right-radius: 25px ; 
+    border-bottom-left-radius: 25px; 
+    border-top-right-radius: 25px; 
+    background-color: rgb(255, 131, 131);
+}
+button.ex{
+    background-color: rgb(46, 44, 44); 
+    border-top-right-radius: 0px;
+  
+    margin-left: 99px;
+    height: 15px;
+    width: 30px;
+}
+hr.dash{
+    width: 50px;
+    height: 5px;
+    background-color: rgb(255, 131, 131);
+}
+div.lfix{
+    left: 0px;
+}
+a.ich{
+    background-color: white;
+    width: 5px;
+    height: 5px;
+}
+
+.tab {
+    overflow: hidden;
+   color: white;
+    background-color: rgb(46, 44, 44);
+  }
+  
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    color: rgb(117, 117, 117);
+  }
+  
+  .tab button:hover {
+    background-color: rgb(105, 102, 102);
+  }
+
+  .tab button.active {
+    background-color:  rgb(105, 102, 102);
+  }
+
+ 
+
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+   
+    border-top: none;
+  }
+  .par{
+    text-align: justify; text-justify: inter-word; width: 80%; color: rgb(117, 117, 117);
+  }
+div.ov{
+    width: 170px; height: 170px; left: 10px; top: 1000px; background-color: rgb(54, 52, 52); position: absolute;
+    color: white; font-size: 25px; font-weight: bold;
+}
+div.ov:hover{
+    background-color: rgb(255, 131, 131);
+}
